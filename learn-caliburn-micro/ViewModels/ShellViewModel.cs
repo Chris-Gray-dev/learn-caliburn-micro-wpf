@@ -97,7 +97,9 @@ namespace learn_caliburn_micro.ViewModels
 
 		public void LoadPageTwo()
 		{
-			ActivateItem(new SecondChildViewModel());
+			var windowManager = new WindowManager();
+			var login = new FirstChildViewModel();
+			windowManager.ShowDialog(login);
 		}
 	}
 }

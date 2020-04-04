@@ -35,9 +35,9 @@
         <TextBox MinWidth="100" Grid.Row="2" Grid.Column="2" x:Name="LastName" />
 
         <!-- Row 3 -->
-        <ListBox Grid.Row="3" Grid.Column="1" x:Name="People"
+        <ListView Grid.Row="3" Grid.Column="1" x:Name="People"
                   SelectedItem="{Binding Path=SelectedPerson,Mode=OneWayToSource}" >
-            <ListBox.ItemTemplate >
+            <ListView.ItemTemplate >
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -48,8 +48,8 @@
                         <TextBlock Grid.Column="1" Text="{Binding LastName}"/>
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ListView.ItemTemplate>
+        </ListView>
         <TextBlock Grid.Row="3" Grid.Column="2" x:Name="SelectedPerson_LastName"/>
 
         <!-- Row 4 -->
