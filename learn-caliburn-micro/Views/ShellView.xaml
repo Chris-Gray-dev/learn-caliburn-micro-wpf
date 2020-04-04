@@ -1,0 +1,67 @@
+﻿<Window x:Class="learn_caliburn_micro.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:learn_caliburn_micro.Views"
+        mc:Ignorable="d" FontSize="18"
+        Title="ShellView" Height="450" Width="800" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <!-- Row 1 -->
+        <TextBlock x:Name="FullName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <!-- Row 2 -->
+        <TextBox MinWidth="100" Grid.Row="2" Grid.Column="1" x:Name="FirstName" />
+        <TextBox MinWidth="100" Grid.Row="2" Grid.Column="2" x:Name="LastName" />
+
+        <!-- Row 3 -->
+        <ListBox Grid.Row="3" Grid.Column="1" x:Name="People"
+                  SelectedItem="{Binding Path=SelectedPerson,Mode=OneWayToSource}" >
+            <ListBox.ItemTemplate >
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="10,0" Grid.Column="0" Text="{Binding FirstName}" />
+                        <TextBlock Grid.Column="1" Text="{Binding LastName}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="SelectedPerson_LastName"/>
+
+        <!-- Row 4 -->
+        <Button Grid.Row="4" Grid.Column="1" x:Name="ClearText">Clear Names</Button>
+
+        <!-- Row 5 -->
+        <Button Grid.Row="5" Grid.Column="1" x:Name="LoadPageOne">Page 1</Button>
+        <Button Grid.Row="5" Grid.Column="2" x:Name="LoadPageTwo">Page 2</Button>
+        
+        <!-- Row 6 -->
+        <ContentControl Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5" x:Name="ActiveItem" />
+
+        
+    </Grid>
+</Window>
